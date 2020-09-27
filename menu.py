@@ -7,12 +7,6 @@ class Menu:
     # Button vars
     RADIUS = 100
     GAP = 65
-    GAME_NAMES = ['Aim', 'Ape Test', 'Hearing', 'Num. Mem.', 'Reactions', 'Typing', 'Verbal Mem.', 'Visual Mem.']
-
-    # Fonts
-    BUTTON_FONT = pg.font.SysFont('arial', 40)
-    TITLE_FONT = pg.font.SysFont('arial', 120)
-    SUBTITLE_FONT = pg.font.SysFont('arial', 40)
 
 
     def __init__(self, win):
@@ -29,15 +23,15 @@ class Menu:
             x = self.start_x + self.GAP * 2 + (self.RADIUS * 2 + self.GAP) * (i % 4)
             y = self.start_y + ((i // 4) * (self.GAP - 40 * (i // 4) + self.RADIUS * 2))
             # self.game_names.append((x, y))
-            self.game_names.append((x, y, self.GAME_NAMES[i]))
+            self.game_names.append((x, y, GAME_NAMES[i]))
 
 
     def draw_titles(self):
-        title_text = self.TITLE_FONT.render(TITLE_TEXT, 1, WHITE)
+        title_text = TITLE_FONT.render(TITLE_TEXT, 1, WHITE)
         self.win.blit(title_text, ((WIDTH / 2 - title_text.get_width() / 2), 40))
 
-        subtitle_text = self.SUBTITLE_FONT.render('Measure your abilities with brain games and cognitive tests', 1,
-                                                  LIGHT_BLUE)
+        subtitle_text = SUBTITLE_FONT.render('Measure your abilities with brain games and cognitive tests', 1,
+                                             LIGHT_BLUE)
         self.win.blit(subtitle_text, ((WIDTH / 2 - subtitle_text.get_width() / 2), 160))
 
 
@@ -48,7 +42,6 @@ class Menu:
         # Draw buttons
         for game_name in self.game_names:
             color = LIGHT_BLUE
-
             x, y, name = game_name
 
             # Change color is mouse is hovering over the button
@@ -59,14 +52,13 @@ class Menu:
 
             pg.draw.circle(self.win, color, (x, y), self.RADIUS, 4)
 
-            text = self.BUTTON_FONT.render(name, 1, color)
+            text = BUTTON_FONT.render(name, 1, color)
             self.win.blit(text, (x - text.get_width() / 2, y - text.get_height() / 2))
 
 
     def menu(self):
         while self.is_running:
             self.clock.tick(MENU_FPS)
-
             to_return = None
 
             for event in pg.event.get():
