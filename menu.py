@@ -38,7 +38,7 @@ class Menu:
 
         subtitle_text = self.SUBTITLE_FONT.render('Measure your abilities with brain games and cognitive tests', 1,
                                                   LIGHT_BLUE)
-        self.win.blit(subtitle_text, ((WIDTH / 2 - subtitle_text.get_width() / 2),160))
+        self.win.blit(subtitle_text, ((WIDTH / 2 - subtitle_text.get_width() / 2), 160))
 
 
     def draw(self):
@@ -47,18 +47,19 @@ class Menu:
 
         # Draw buttons
         for game_name in self.game_names:
-            # Change color is mouse is hovering over the button
             color = LIGHT_BLUE
 
             x, y, name = game_name
 
+            # Change color is mouse is hovering over the button
             m_x, m_y = pg.mouse.get_pos()
             dist = math.sqrt((x - m_x) ** 2 + (y - m_y) ** 2)
             if dist < self.RADIUS:
                 color = WHITE
 
-            text = self.BUTTON_FONT.render(name, 1, color)
             pg.draw.circle(self.win, color, (x, y), self.RADIUS, 4)
+
+            text = self.BUTTON_FONT.render(name, 1, color)
             self.win.blit(text, (x - text.get_width() / 2, y - text.get_height() / 2))
 
 
