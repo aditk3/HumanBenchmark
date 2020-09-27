@@ -11,6 +11,8 @@ class Menu:
 
     # Fonts
     BUTTON_FONT = pg.font.SysFont('arial', 40)
+    TITLE_FONT = pg.font.SysFont('arial', 120)
+    SUBTITLE_FONT = pg.font.SysFont('arial', 40)
 
 
     def __init__(self, win):
@@ -22,8 +24,6 @@ class Menu:
         self.start_x = round((WIDTH - (self.RADIUS * 2 + self.GAP) * 4) / 2)
         self.start_y = 370
 
-        print(self.start_x)
-
         # Set up button locations and text
         for i in range(8):
             x = self.start_x + self.GAP * 2 + (self.RADIUS * 2 + self.GAP) * (i % 4)
@@ -32,22 +32,33 @@ class Menu:
             self.game_names.append((x, y, self.GAME_NAMES[i]))
 
 
+    def draw_titles(self):
+        title_text = self.TITLE_FONT.render(TITLE_TEXT, 1, WHITE)
+        self.win.blit(title_text, ((WIDTH / 2 - title_text.get_width() / 2), 40))
+
+        subtitle_text = self.SUBTITLE_FONT.render('Measure your abilities with brain games and cognitive tests', 1,
+                                                  LIGHT_BLUE)
+        self.win.blit(subtitle_text, ((WIDTH / 2 - subtitle_text.get_width() / 2),160))
+
+
     def draw(self):
         self.win.fill(BLUE)
+        self.draw_titles()
 
         # Draw buttons
         for game_name in self.game_names:
-            x, y, name = game_name
-            pg.draw.circle(self.win, LIGHT_BLUE, (x, y), self.RADIUS, 4)
+            # Change color is mouse is hovering over the button
+            color = LIGHT_BLUE
 
-            # Change text color is mouse is hovering over the button
-            text_color = LIGHT_BLUE
+            x, y, name = game_name
+
             m_x, m_y = pg.mouse.get_pos()
             dist = math.sqrt((x - m_x) ** 2 + (y - m_y) ** 2)
             if dist < self.RADIUS:
-                text_color = WHITE
+                color = WHITE
 
-            text = self.BUTTON_FONT.render(name, 1, text_color)
+            text = self.BUTTON_FONT.render(name, 1, color)
+            pg.draw.circle(self.win, color, (x, y), self.RADIUS, 4)
             self.win.blit(text, (x - text.get_width() / 2, y - text.get_height() / 2))
 
 

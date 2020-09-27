@@ -5,7 +5,7 @@ from consts import *
 import menu
 
 win = pg.display.set_mode((WIDTH, HEIGHT))
-pg.display.set_caption(TITLE)
+pg.display.set_caption(TITLE_TEXT)
 
 menu = menu.Menu(win)
 
@@ -15,6 +15,5 @@ is_running = True
 
 if __name__ == '__main__':
     menu.menu()
-    print(pg.font.get_fonts())
 
     pg.quit()
