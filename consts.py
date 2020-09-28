@@ -5,6 +5,8 @@ import pygame as pg
 WIDTH, HEIGHT = 1920, 1080
 MENU_FPS = 15
 
+WAIT_TIME = 2500
+
 # Color
 BLACK = (0, 0, 0)
 BLUE = (43, 135, 209)

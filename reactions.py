@@ -4,7 +4,7 @@ from random import randint
 
 
 class Reactions:
-    ROUNDS = 5
+    ROUNDS = 0
     MIN_ROUND_TIME = 1.5
     MAX_ROUND_TIME = 5
 
@@ -26,7 +26,8 @@ class Reactions:
             for event in pg.event.get():
                 if event.type == pg.QUIT:
                     self.is_running = False
-                    break
+                    pg.quit()
+                    quit()
 
                 if event.type == pg.MOUSEBUTTONDOWN:
                     for i in range(self.ROUNDS):
@@ -42,7 +43,7 @@ class Reactions:
                 self.draw_start_screen()
 
             else:
-                final_score = self.score // self.ROUNDS
+                final_score = self.score // self.ROUNDS if self.score != 0 else self.score
                 self.draw_score(final_score)
                 pg.display.update()
                 self.is_running = False
@@ -80,7 +81,7 @@ class Reactions:
                 if event.type == pg.MOUSEBUTTONDOWN and not self.green:
                     self.draw_too_early()
                     pg.display.update()
-                    pg.time.delay(3000)
+                    pg.time.delay(WAIT_TIME)
                     return self.run_round()
 
                 if event.type == pg.MOUSEBUTTONDOWN and self.green:
@@ -121,7 +122,7 @@ class Reactions:
         self.win.fill(BLUE)
         self.draw_subtitle_to_center(time)
         pg.display.update()
-        pg.time.delay(3000)
+        pg.time.delay(WAIT_TIME)
 
 
     def draw_score(self, score):
@@ -129,4 +130,4 @@ class Reactions:
         self.draw_subtitle_to_center('Your average time is ' + str(score) + 'ms')
         pg.display.update()
 
-        pg.time.delay(3000)
+        pg.time.delay(WAIT_TIME)

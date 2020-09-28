@@ -57,15 +57,16 @@ class Menu:
 
     def start(self):
         self.is_running = True
+        to_return = None
 
         while self.is_running:
             self.clock.tick(MENU_FPS)
-            to_return = None
 
             for event in pg.event.get():
                 if event.type == pg.QUIT:
                     self.is_running = False
-                    break
+                    pg.quit()
+                    quit()
 
                 # Returns game user clicked on
                 if event.type == pg.MOUSEBUTTONDOWN:
@@ -80,5 +81,6 @@ class Menu:
             pg.display.update()
 
             if to_return:
+                print(to_return)
                 self.is_running = False
                 return to_return

@@ -9,17 +9,19 @@ import reactions
 win = pg.display.set_mode((WIDTH, HEIGHT))
 pg.display.set_caption(TITLE_TEXT)
 
+scores = {x: 0 for x in GAME_NAMES}
+
 menu = menu.Menu(win)
-reactions = reactions.Reactions(win)
+
 
 clock = pg.time.Clock()
 
 is_running = True
 
 if __name__ == '__main__':
-    selection = menu.start()
+    while True:
+        selection = menu.start()
 
-    if selection == 'Reactions':
-        reactions.start()
-
-    pg.quit()
+        if selection == 'Reactions':
+            react = reactions.Reactions(win)
+            scores['Reactions'] = react.start()
