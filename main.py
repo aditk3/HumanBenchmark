@@ -13,15 +13,14 @@ scores = {x: 0 for x in GAME_NAMES}
 
 menu = menu.Menu(win)
 
-
 clock = pg.time.Clock()
 
 is_running = True
 
 if __name__ == '__main__':
+    # Main game loop
     while True:
         selection = menu.start()
 
         if selection == 'Reactions':
-            react = reactions.Reactions(win)
-            scores['Reactions'] = react.start()
+            scores['Reactions'] = reactions.Reactions(win).start()

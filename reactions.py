@@ -4,7 +4,7 @@ from random import randint
 
 
 class Reactions:
-    ROUNDS = 0
+    ROUNDS = 4
     MIN_ROUND_TIME = 1.5
     MAX_ROUND_TIME = 5
 
