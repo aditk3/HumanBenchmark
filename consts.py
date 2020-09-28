@@ -9,6 +9,8 @@ MENU_FPS = 15
 BLACK = (0, 0, 0)
 BLUE = (43, 135, 209)
 LIGHT_BLUE = (193, 220, 242)
+GREEN = (0, 255, 0)
+RED = (255, 0, 0)
 WHITE = (255, 255, 255)
 
 # Fonts
