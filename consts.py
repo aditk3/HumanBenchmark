@@ -2,7 +2,7 @@ from collections import namedtuple
 import pygame as pg
 
 # Setup
-WIDTH, HEIGHT = 1080, 720
+WIDTH, HEIGHT = 1920, 1080
 MENU_FPS = 15
 
 # Color
@@ -13,10 +13,9 @@ WHITE = (255, 255, 255)
 
 # Fonts
 BUTTON_FONT = pg.font.SysFont('arial', 40)
-TITLE_FONT = pg.font.SysFont('arial', 120)
-SUBTITLE_FONT = pg.font.SysFont('arial', 40)
+TITLE_FONT = pg.font.SysFont('arial', 140)
+SUBTITLE_FONT = pg.font.SysFont('arial', 45)
 
 # Text
 TITLE_TEXT = 'Human Benchmark'
 GAME_NAMES = ['Aim', 'Chimp Test', 'Hearing', 'Num. Mem.', 'Reactions', 'Typing', 'Verbal Mem.', 'Visual Mem.']
-

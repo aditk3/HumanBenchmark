@@ -5,8 +5,8 @@ import math
 
 class Menu:
     # Button vars
-    RADIUS = 100
-    GAP = 65
+    RADIUS = (100 * HEIGHT) // 720
+    GAP = (65 * HEIGHT) // 720
 
 
     def __init__(self, win):
@@ -15,24 +15,23 @@ class Menu:
         self.clock = pg.time.Clock()
 
         self.game_names = []
-        self.start_x = round((WIDTH - (self.RADIUS * 2 + self.GAP) * 4) / 2)
-        self.start_y = 370
+        self.start_x = ((round(((WIDTH - (self.RADIUS * 2 + self.GAP) * 4) / 2)) * HEIGHT) // 720) - (60 * HEIGHT) // 720
+        self.start_y = (370 * HEIGHT) // 720 - 50
 
         # Set up button locations and text
         for i in range(8):
             x = self.start_x + self.GAP * 2 + (self.RADIUS * 2 + self.GAP) * (i % 4)
             y = self.start_y + ((i // 4) * (self.GAP - 40 * (i // 4) + self.RADIUS * 2))
-            # self.game_names.append((x, y))
             self.game_names.append((x, y, GAME_NAMES[i]))
 
 
     def draw_titles(self):
         title_text = TITLE_FONT.render(TITLE_TEXT, 1, WHITE)
-        self.win.blit(title_text, ((WIDTH / 2 - title_text.get_width() / 2), 40))
+        self.win.blit(title_text, ((WIDTH / 2 - title_text.get_width() / 2), (40 * HEIGHT) // 720))
 
         subtitle_text = SUBTITLE_FONT.render('Measure your abilities with brain games and cognitive tests', 1,
                                              LIGHT_BLUE)
-        self.win.blit(subtitle_text, ((WIDTH / 2 - subtitle_text.get_width() / 2), 160))
+        self.win.blit(subtitle_text, ((WIDTH / 2 - subtitle_text.get_width() / 2), ((160 * HEIGHT) // 720) - 30))
 
 
     def draw(self):
@@ -56,7 +55,9 @@ class Menu:
             self.win.blit(text, (x - text.get_width() / 2, y - text.get_height() / 2))
 
 
-    def menu(self):
+    def start(self):
+        self.is_running = True
+
         while self.is_running:
             self.clock.tick(MENU_FPS)
             to_return = None
@@ -64,6 +65,7 @@ class Menu:
             for event in pg.event.get():
                 if event.type == pg.QUIT:
                     self.is_running = False
+                    break
 
                 # Returns game user clicked on
                 if event.type == pg.MOUSEBUTTONDOWN:
