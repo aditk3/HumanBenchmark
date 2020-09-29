@@ -81,6 +81,5 @@ class Menu:
             pg.display.update()
 
             if to_return:
-                print(to_return)
                 self.is_running = False
                 return to_return

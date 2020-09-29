@@ -17,7 +17,7 @@ WHITE = (255, 255, 255)
 
 # Fonts
 BUTTON_FONT = pg.font.SysFont('arial', 40)
-TITLE_FONT = pg.font.SysFont('arial', 140)
+TITLE_FONT = pg.font.SysFont('arial', 130)
 SUBTITLE_FONT = pg.font.SysFont('arial', 45)
 
 # Text

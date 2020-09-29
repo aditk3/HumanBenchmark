@@ -4,7 +4,7 @@ from random import randint
 
 
 class Reactions:
-    ROUNDS = 4
+    ROUNDS = 5
     MIN_ROUND_TIME = 1.5
     MAX_ROUND_TIME = 5
 
@@ -69,8 +69,9 @@ class Reactions:
         round_time = randint(int(self.MIN_ROUND_TIME * 1000), int(self.MAX_ROUND_TIME * 1000))
 
         while True:
+            self.win.fill(BLUE)
+
             for event in pg.event.get():
-                self.win.fill(BLUE)
 
                 if event.type == pg.QUIT:
                     self.is_running = False
@@ -122,7 +123,7 @@ class Reactions:
         self.win.fill(BLUE)
         self.draw_subtitle_to_center(time)
         pg.display.update()
-        pg.time.delay(WAIT_TIME)
+        pg.time.delay(WAIT_TIME - 1000)
 
 
     def draw_score(self, score):
