@@ -11,9 +11,6 @@ class ChimpTest():
         self.is_hidden = False
         self.is_running = False
 
-    def start():
-        self.is_running = True
-        self.win.fill(BLUE)
 
     def start(self):
         round_started = False
@@ -31,6 +28,7 @@ class ChimpTest():
 
             pg.display.update()
 
+
     def draw_start_screen(self):
         self.win.fill(BLUE)
 
@@ -39,7 +37,8 @@ class ChimpTest():
 
         subtitle_text = SUBTITLE_FONT.render('Click the squares in order according to their numbers.', 1,
                                              LIGHT_BLUE)
-        self.win.blit(subtitle_text, ((WIDTH / 2 - subtitle_text.get_width() / 2), HEIGHT - ((160 * HEIGHT) // 720) - subtitle_text.get_height()))
+        self.win.blit(subtitle_text, (
+        (WIDTH / 2 - subtitle_text.get_width() / 2), HEIGHT - ((160 * HEIGHT) // 720) - subtitle_text.get_height()))
 
         subtitle_text = SUBTITLE_FONT.render('The test will get progressively harder.', 1,
                                              LIGHT_BLUE)

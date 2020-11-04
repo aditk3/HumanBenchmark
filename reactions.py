@@ -41,7 +41,6 @@ class Reactions:
 
             if not finished:
                 self.draw_start_screen()
-
             else:
                 final_score = self.score // self.ROUNDS if self.score != 0 else self.score
                 self.draw_score(final_score)
@@ -58,8 +57,7 @@ class Reactions:
         title_text = TITLE_FONT.render('Reaction Time', 1, WHITE)
         self.win.blit(title_text, ((WIDTH / 2 - title_text.get_width() / 2), ((40 * HEIGHT) // 720) + 50))
 
-        subtitle_text = SUBTITLE_FONT.render('Click anywhere to begin', 1,
-                                             LIGHT_BLUE)
+        subtitle_text = SUBTITLE_FONT.render('Click anywhere to begin', 1, LIGHT_BLUE)
         self.win.blit(subtitle_text, ((WIDTH / 2 - subtitle_text.get_width() / 2), HEIGHT - ((160 * HEIGHT) // 720)))
 
 
@@ -97,12 +95,11 @@ class Reactions:
                 pg.draw.rect(self.win, GREEN, (
                     (WIDTH / 2 - self.RECT_WIDTH / 2), HEIGHT / 2 - self.RECT_HEIGHT / 2, self.RECT_WIDTH,
                     self.RECT_HEIGHT))
-
             else:
                 pg.draw.rect(self.win, RED, (
                     (WIDTH / 2 - self.RECT_WIDTH / 2), HEIGHT / 2 - self.RECT_HEIGHT / 2, self.RECT_WIDTH,
                     self.RECT_HEIGHT))
-                
+
                 self.draw_subtitle_to_center('Click on green...')
 
             pg.display.update()

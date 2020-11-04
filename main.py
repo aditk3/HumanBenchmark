@@ -5,7 +5,7 @@ pg.init()
 from consts import *
 import menu
 import reactions
-import  chimp
+import chimp
 
 win = pg.display.set_mode((WIDTH, HEIGHT))
 pg.display.set_caption(TITLE_TEXT)
@@ -29,4 +29,5 @@ if __name__ == '__main__':
             scores['Reactions'] = reactions.Reactions(win).start()
 
         elif selection == 'Chimp Test':
-            scores['Chimp Test'] = chimp.ChimpTest(win).start()
+            pass
+            # scores['Chimp Test'] = chimp.ChimpTest(win).start()

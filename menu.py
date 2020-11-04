@@ -15,7 +15,8 @@ class Menu:
         self.clock = pg.time.Clock()
 
         self.game_names = []
-        self.start_x = ((round(((WIDTH - (self.RADIUS * 2 + self.GAP) * 4) / 2)) * HEIGHT) // 720) - (60 * HEIGHT) // 720
+        self.start_x = ((round(((WIDTH - (self.RADIUS * 2 + self.GAP) * 4) / 2)) * HEIGHT) // 720) - (
+                60 * HEIGHT) // 720
         self.start_y = (370 * HEIGHT) // 720 - 50
 
         # Set up button locations and text
