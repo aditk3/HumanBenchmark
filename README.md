@@ -1,5 +1,5 @@
 # HumanBenchmark
-Me just trying to create all the games found at humanbenchmark.com
+Me just trying to create all the games found at [Human Benchmark](humanbenchmark.com) as a fun side project
 
 ## Game List:
 - [ ] Aim Test
